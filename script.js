@@ -102,12 +102,12 @@ function draw() {
     const dy = lineY - smooth.y;
     const lineDist = Math.abs(dy);
     const glow = Math.max(0, 1 - lineDist / 200);
-    const alpha = 0.05 + glow * 0.25;
+    const alpha = 0.12 + glow * 0.55;
     const r = Math.round(127 + glow * 80);
     const g = Math.round(119 + glow * 30);
     const b = 221;
     ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
-    ctx.lineWidth = 1 + glow * 0.8;
+    ctx.lineWidth = 1 + glow * 1.5;
     ctx.stroke();
   }
 
