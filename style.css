@@ -137,6 +137,7 @@ section h2 span {
 .hero {
   min-height: 100vh;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
   gap: 80px;
@@ -742,27 +743,78 @@ footer span {
 @media (max-width: 950px) {
 
   .hero {
-    flex-direction: column;
-    text-align: center;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: 
+      "image badge"
+      "image name"
+      "details details";
+    text-align: left;
     padding-top: 100px;
-    gap: 48px;
+    gap: 12px 20px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .hero-content {
+    display: contents;
+  }
+
+  .hero-image {
+    grid-area: image;
+    z-index: 1;
+  }
+
+  .hero-badge {
+    grid-area: badge;
+    margin-bottom: 0;
+    width: fit-content;
+    font-size: 11px;
+    padding: 5px 14px;
   }
 
   .hero-content h1 {
-    font-size: 48px;
+    grid-area: name;
+    font-size: 32px;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+
+  .hero-content h3, 
+  .hero-content p, 
+  .hero-btns, 
+  .hero-stats {
+    grid-column: 1 / -1;
+  }
+
+  .hero-content h3 {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .hero-content p {
+    margin-bottom: 24px;
   }
 
   .hero-btns {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   .hero-stats {
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 30px;
+    padding-top: 30px;
+    gap: 25px;
   }
 
   .hero-img-ring {
-    width: 240px;
-    height: 240px;
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+  }
+
+  .hero-img-inner {
+    border-radius: 16px;
   }
 
   .about-grid {
@@ -818,7 +870,7 @@ footer span {
   }
 
   .hero-content h1 {
-    font-size: 40px;
+    font-size: 32px;
   }
 
 }
